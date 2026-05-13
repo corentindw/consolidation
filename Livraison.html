@@ -1088,7 +1088,11 @@ function ProductTunnel({ product }) {
   return (
     <div className="product-tunnel">
       <div className="product-tunnel__img">
-        <div className={`placeholder-img ${product.kind || ""}`} />
+        {product.img ? (
+          <img src={product.img} alt={product.name} />
+        ) : (
+          <div className={`placeholder-img ${product.kind || ""}`} />
+        )}
       </div>
       <div className="product-tunnel__content">
         <div className="product-tunnel__main">
@@ -1324,7 +1328,8 @@ const DELIVERY_GROUPS = [
         { label: "Angle", value: "Gauche" }
       ],
       price: "1 709", priceStrike: "1 899", promo: "-10%", qty: 1, unit: "1 709",
-      kind: ""
+      kind: "",
+      img: "assets/everest.jpg"
     },
     options: [
       { id: "confort", title: "Confort", price: "179", consolidatedPrice: "259", from: "3,99 €",
@@ -1349,7 +1354,8 @@ const DELIVERY_GROUPS = [
         { label: "Dimension", value: "160x230" }
       ],
       price: "139", priceStrike: "139", offert: true, qty: 1, unit: "139",
-      kind: "rug"
+      kind: "rug",
+      img: "assets/brooke.jpg"
     },
     options: [
       { id: "eco2", title: "Éco", free: true,
@@ -1371,7 +1377,8 @@ const DELIVERY_GROUPS = [
         { label: "Dimension", value: "180x200" }
       ],
       price: "1 299", qty: 1, unit: "1 299",
-      kind: "bed"
+      kind: "bed",
+      img: "assets/montblanc.jpg"
     },
     options: [
       { id: "confort3", title: "Confort", price: "219", from: "3,99 €",
@@ -1452,8 +1459,8 @@ function Summary({ consolidation, selections }) {
       </div>
       {promoOpen && (
         <div style={{ display: "flex", gap: 8 }}>
-          <input className="question-input" placeholder="Entrez votre code" />
-          <MButton variant="primary">OK</MButton>
+          <input className="question-input" placeholder="Entrez votre code" style={{ flex: 1, minWidth: 0 }} />
+          <MButton variant="primary">Appliquer</MButton>
         </div>
       )}
       <div className="recap-divider" />

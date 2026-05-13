@@ -370,6 +370,13 @@ a { color: inherit; }
   background: var(--color-neutral-100);
   background-size: cover;
   background-position: center;
+  overflow: hidden;
+}
+.product-tunnel__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .product-tunnel__content {
   flex: 1;
